@@ -22,7 +22,7 @@ extern "C" {
  * required at least for the ARM Cortex-M port, that uses the ARM CMSIS API.
  * Try that in case of build problems. Otherwise, remove the #error line below.
  *****************************************************************************/
-#error "Trace Recorder: Please include your processor's header file here and remove this line."
+#include "stm32u5g9xx.h"
 
 /**
  * @def TRC_CFG_HARDWARE_PORT
@@ -41,7 +41,7 @@ extern "C" {
  * See trcHardwarePort.h for available ports and information on how to
  * define your own port, if not already present.
  */
-#define TRC_CFG_HARDWARE_PORT TRC_HARDWARE_PORT_NOT_SET
+#define TRC_CFG_HARDWARE_PORT TRC_HARDWARE_PORT_ARM_Cortex_M
 
 /**
  * @def TRC_CFG_SCHEDULING_ONLY
@@ -63,7 +63,7 @@ extern "C" {
  *
  * Default value is 1.
  */
-#define TRC_CFG_INCLUDE_MEMMANG_EVENTS 1
+#define TRC_CFG_INCLUDE_MEMMANG_EVENTS 0
 
 /**
  * @def TRC_CFG_INCLUDE_USER_EVENTS
@@ -106,7 +106,7 @@ extern "C" {
  * Note: tracing ISRs requires that you insert calls to xTraceStoreISRBegin
  * and xTraceStoreISREnd in your interrupt handlers.
  */
-#define TRC_CFG_INCLUDE_ISR_TRACING 1
+#define TRC_CFG_INCLUDE_ISR_TRACING 0
 
 /**
  * @def TRC_CFG_INCLUDE_READY_EVENTS
@@ -135,7 +135,7 @@ extern "C" {
  *
  * Default value is 1.
  */
-#define TRC_CFG_INCLUDE_OSTICK_EVENTS 1
+#define TRC_CFG_INCLUDE_OSTICK_EVENTS 0
 
 /**
  * @def TRC_CFG_ENTRY_SLOTS
@@ -149,7 +149,7 @@ extern "C" {
  * trace display will be affected. In that case, there will be warnings
  * (as User Events) from TzCtrl task, which monitors this.
  */
-#define TRC_CFG_ENTRY_SLOTS 50
+#define TRC_CFG_ENTRY_SLOTS 150
 
 /**
  * @def TRC_CFG_ENTRY_SYMBOL_MAX_LENGTH
