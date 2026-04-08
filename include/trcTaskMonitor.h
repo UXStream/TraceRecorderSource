@@ -23,6 +23,8 @@
 #define TRC_KERNEL_PORT_SUPPORTS_TLS 0
 #endif
 
+#if (TRC_USE_TRACEALYZER_RECORDER == 1) && (TRC_CFG_ENABLE_TASK_MONITOR == 1) && (TRC_KERNEL_PORT_SUPPORTS_TLS == 1)
+
 typedef struct TraceTaskMonitorCallbackData
 {
 	void* pvTaskAddress;
@@ -35,7 +37,6 @@ typedef struct TraceTaskMonitorCallbackData
 
 typedef void (*TraceTaskMonitorCallback_t)(TraceTaskMonitorCallbackData_t *pxData);
 
-#if (TRC_USE_TRACEALYZER_RECORDER == 1) && (TRC_CFG_ENABLE_TASK_MONITOR == 1) && (TRC_KERNEL_PORT_SUPPORTS_TLS == 1)
 
 #include <trcTypes.h>
 
