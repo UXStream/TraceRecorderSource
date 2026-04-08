@@ -12,13 +12,14 @@
 #define TRC_KERNEL_PORT_H
 
 #include <trcDefines.h>
-#include <FreeRTOS.h>	/* Defines configUSE_TRACE_FACILITY */
+#include "FreeRTOSConfig.h"
+#include <FreeRTOS.h>	/* Defines USE_TRACERECORDER */
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define TRC_USE_TRACEALYZER_RECORDER configUSE_TRACE_FACILITY
+#define TRC_USE_TRACEALYZER_RECORDER USE_TRACERECORDER
 
 /* FreeRTOS version codes */
 #define FREERTOS_VERSION_NOT_SET				0
